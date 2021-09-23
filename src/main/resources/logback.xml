@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <Target>System.out</Target>
+        <encoder>
+            <pattern>%-5p [%d][%mdc{mdc_userId}] %C:%L - %m %n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <!-- 此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+
+
+
+    <!-- 生产环境，将此级别配置为适合的级别，以名日志文件太多或影响程序性能 -->
+    <root level="info">
+        <!-- 生产环境将请stdout去掉 -->
+        <appender-ref ref="stdout"/>
+    </root>
+</configuration>
