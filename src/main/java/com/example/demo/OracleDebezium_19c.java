@@ -32,18 +32,19 @@ public class OracleDebezium_19c {
         props.setProperty("name", String.valueOf(timestamp));
         props.setProperty("connector.class", "io.debezium.connector.oracle.OracleConnector");
         props.setProperty("offset.storage", "org.apache.kafka.connect.storage.FileOffsetBackingStore");
+
         // 指定 offset 存储目录
         props.setProperty("offset.storage.file.filename", filename);
         // 指定 Topic offset 写入磁盘的间隔时间
         props.setProperty("offset.flush.interval.ms", "6000");
         //设置数据库连接信息
-        props.setProperty("database.hostname", "192.168.10.132");
+        props.setProperty("database.hostname", "192.168.110.130");
         props.setProperty("database.port", "1521");
         props.setProperty("database.user", "C##DBZUSER");
         props.setProperty("database.password", "dbz");
         props.setProperty("database.server.id", "85701");
         props.setProperty("table.include.list", "C##DBZUSER.STU2");
-        props.setProperty("database.history", "io.debezium.relational.history.FileDatabaseHistor");
+        props.setProperty("database.history", FileDatabaseHistory.class.getCanonicalName());
         props.setProperty("database.history.file.filename", filename);
         //每次运行需要对此参数进行修改，因为此参数唯一
         props.setProperty("database.server.name", String.valueOf(timestamp));

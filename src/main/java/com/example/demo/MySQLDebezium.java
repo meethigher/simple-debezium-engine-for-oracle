@@ -79,7 +79,7 @@ public class MySQLDebezium {
 //        props.setProperty("connector.class", MySqlConnector.class.getCanonicalName());
         props.setProperty("connector.class", "io.debezium.connector.mysql.MySqlConnector");
         props.setProperty("database.server.name", "my_server_1"); // 可以任意修改
-        props.setProperty("database.hostname", "192.168.10.130"); // IP
+        props.setProperty("database.hostname", "192.168.110.130"); // IP
         props.setProperty("database.port", String.valueOf(3306)); // 端口
         props.setProperty("database.user", "root"); // 用户
         props.setProperty("database.password", "debezium"); // 密码
